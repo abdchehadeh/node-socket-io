@@ -1,0 +1,23 @@
+{
+  "name": "socket-io",
+  "version": "1.0.0",
+  "description": "NodeJs socket chat rooms",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdchehadeh/node-socket-io.git"
+  },
+  "author": "Abedo Che",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdchehadeh/node-socket-io/issues"
+  },
+  "homepage": "https://github.com/abdchehadeh/node-socket-io#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.2.0"
+  }
+}
