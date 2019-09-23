@@ -17,14 +17,20 @@ app.get('/', (req, res) =>{
 const tech = io.of('/tech')
 
 tech.on("connection", (socket) => {
+    socket.on('join', (data) =>{
+        socket.join(data.room);
+        tech.in(data.room).emit(`message`, `New user joined ${data.room} room!`)
+
+    });
+
     console.log("User is connected");
     // socket.emit('message', {manny: 'hey there, how are you?'})
-    socket.on('message', (msg) =>{
-        console.log(`message ${msg}`);
-        tech.emit('message', msg)
+    socket.on('message', (data) =>{
+        console.log(`message ${data.msg}`);
+        tech.in(data.room).emit('message', data.msg)
     });
     socket.on('disconnect', ()=>{
-        console.log('User disconnected')
+        console.log('User disconnected');
         tech.emit('message', 'User has been disconneted');
     })
 });
